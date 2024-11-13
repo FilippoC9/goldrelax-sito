@@ -41,15 +41,21 @@ nav ul li a {
 }
 
 /* Hero Section */
+/* Hero Section */
 .hero {
     height: 100vh;
     background: url('banner.png') center/cover no-repeat;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #fff;
     text-align: center;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo nero semi-trasparente */
+    padding: 40px;
+    border-radius: 10px;
 }
 
 .hero h1 {
@@ -64,8 +70,8 @@ nav ul li a {
 
 .hero button {
     padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+    background-color: #FFD700;
+    color: #333;
     border: none;
     cursor: pointer;
     font-size: 18px;
