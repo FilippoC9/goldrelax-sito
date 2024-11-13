@@ -43,7 +43,7 @@ nav ul li a {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+    background: url('banner.png') center/cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
