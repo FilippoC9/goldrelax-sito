@@ -8,10 +8,10 @@ body {
 
 .contenitore {
     background-color: white;
-    margin: 100px auto; /* Sposta il contenitore più in basso per evitare il pulsante "Indietro" */
+    margin: 70px auto; /* Aggiungi margine per evitare che il bottone "Indietro" copra */
     width: 100%;
-    max-width: 350px; /* Rendi il contenitore più piccolo */
-    padding: 15px; /* Riduci il padding */
+    max-width: 400px; /* Limita la larghezza massima */
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -19,47 +19,46 @@ body {
 
 .listaClienti {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 28px; /* Riduci la dimensione del font */
+    font-size: 32px;
     text-align: center;
     margin-bottom: 20px;
 }
 
 .campo {
-    margin-bottom: 10px; /* Riduci lo spazio tra i campi */
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    font-size: 14px; /* Riduci la dimensione del font */
 }
 
 input[type="text"],
 input[type="password"] {
-    width: 100%;
-    padding: 8px; /* Riduci il padding */
-    font-size: 14px; /* Riduci la dimensione del font */
+    width: 100%; /* Occupa tutta la larghezza */
+    padding: 10px;
+    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Assicura che il padding non influenzi la larghezza */
 }
 
 input[type="text"]:disabled {
     background-color: #f0f0f0;
-    cursor: not-allowed;
+    cursor: not-allowed; /* Mostra che il campo è disabilitato */
 }
 
 button {
     width: 100%;
-    padding: 10px; /* Riduci il padding */
+    padding: 12px;
     background-color: #4CAF50;
     color: white;
-    font-size: 16px; /* Riduci la dimensione del font */
+    font-size: 18px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: bold; /* Rende il testo del pulsante in grassetto */
     box-sizing: border-box;
 }
 
@@ -77,12 +76,49 @@ button:hover {
     text-decoration: none;
     border-radius: 20px;
     position: fixed; /* Cambiato da absolute a fixed */
-    top: 10px; /* Posiziona più in alto per evitare sovrapposizioni */
-    left: 10px;
-    font-weight: bold;
-    z-index: 100; /* Assicura che il bottone sia sopra il contenitore */
+    top: 20px;
+    left: 20px; /* Allineato a sinistra */
+    font-weight: bold; /* Rende il testo del pulsante in grassetto */
+    z-index: 100; /* Porta il bottone sopra tutto */
 }
 
 .bottone-verde:hover {
     background-color: #FFD700;
+}
+
+/* Media Queries per dispositivi mobili */
+@media (max-width: 600px) {
+    .contenitore {
+        margin: 20px; /* Riduci i margini per dispositivi piccoli */
+        width: 90%; /* Occupa il 90% della larghezza dello schermo */
+        padding: 15px; /* Riduci il padding per dispositivi mobili */
+    }
+
+    .listaClienti {
+        font-size: 24px; /* Riduci la dimensione del titolo su schermi piccoli */
+    }
+
+    label {
+        font-size: 14px; /* Riduci la dimensione dei label */
+    }
+
+    .campo {
+        margin-bottom: 10px; /* Riduci lo spazio tra i campi */
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        font-size: 14px; /* Riduci la dimensione del font nei campi di input */
+        padding: 8px; /* Riduci il padding dei campi */
+    }
+
+    button {
+        font-size: 16px; /* Riduci la dimensione del bottone */
+        padding: 10px; /* Riduci il padding del bottone */
+    }
+
+    .bottone-verde {
+        top: 10px; /* Posiziona il bottone un po' più in alto su dispositivi piccoli */
+        left: 10px; /* Posiziona più vicino al bordo sinistro su dispositivi piccoli */
+    }
 }
