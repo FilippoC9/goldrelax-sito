@@ -90,17 +90,17 @@ button:hover {
 /* Media Queries per dispositivi mobili */
 @media (max-width: 600px) {
     .contenitore {
-        margin: 120px auto; /* Aggiungi più margine per spostare il contenitore verso il basso */
-        width: 90%; /* Occupa il 90% dello schermo */
+        margin: 150px auto; /* Aggiungi più margine per spostare il contenitore verso il basso */
+        width: 85%; /* Riduci la larghezza per adattarsi meglio agli schermi piccoli */
         padding: 10px; /* Riduci il padding */
     }
 
     .listaClienti {
-        font-size: 22px; /* Riduci la dimensione del font */
+        font-size: 20px; /* Riduci ulteriormente la dimensione del font */
     }
 
     label {
-        font-size: 12px; /* Riduci la dimensione del font nei label */
+        font-size: 12px; /* Mantieni il font dei label più piccolo */
     }
 
     .campo {
@@ -114,7 +114,7 @@ button:hover {
     }
 
     button {
-        font-size: 14px; /* Riduci la dimensione del bottone */
+        font-size: 14px; /* Mantieni la dimensione del bottone ridotta */
         padding: 8px; /* Riduci il padding del bottone */
     }
 
