@@ -1,0 +1,118 @@
+body {
+    background-color: #F2F4F5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.contenitore {
+    background-color: white;
+    margin: 50px auto;
+    width: 100%;
+    max-width: 400px; /* Imposta una larghezza massima */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative; /* Necessario per il posizionamento assoluto del pulsante */
+}
+
+.listaClienti {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.campo {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;  /* Occupa tutta la larghezza */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;  /* Assicura che il padding non influenzi la larghezza */
+}
+
+input[type="text"]:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed; /* Mostra che il campo è disabilitato */
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold; /* Rende il testo del pulsante in grassetto */
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #FFD700;
+}
+
+.bottone-verde {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 20px;
+    position: absolute;  /* Posiziona il bottone rispetto al contenitore */
+    top: 20px;
+    right: 20px; /* Sposta il bottone a destra */
+    font-weight: bold; /* Rende il testo del pulsante in grassetto */
+}
+
+.bottone-verde:hover {
+    background-color: #FFD700;
+}
+
+/* Sezione nascosta che apparirà dopo il login corretto */
+.pagina-nascosta {
+    margin-top: 20px;
+    text-align: center;
+    display: none; /* Di default è nascosta */
+}
+
+/* Media Queries per la responsività */
+
+@media (max-width: 600px) {
+    .contenitore {
+        margin: 20px; /* Meno margine sui dispositivi piccoli */
+        width: 100%;  /* Occupa tutta la larghezza disponibile */
+    }
+
+    .listaClienti {
+        font-size: 28px;  /* Riduci la dimensione del titolo su schermi piccoli */
+    }
+
+    input[type="text"], input[type="password"] {
+        font-size: 14px;  /* Riduci la dimensione dei caratteri nei campi */
+    }
+
+    button {
+        font-size: 16px;  /* Riduci la dimensione del bottone */
+        padding: 10px;  /* Riduci il padding per dispositivi piccoli */
+    }
+
+    .bottone-verde {
+        top: 10px; /* Posiziona il bottone un po' più in alto su dispositivi piccoli */
+        right: 10px; /* Posiziona più vicino al bordo destro su dispositivi piccoli */
+    }
+}

@@ -1,0 +1,134 @@
+/* Stile generale */
+body {
+    background-color: #F2F4F5; /* Sfondo grigio chiaro */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Bottone verde */
+.bottone-verde {
+    position: absolute;
+    top: 20px; /* Spazio dall'alto */
+    right: 20px; /* Spazio dalla destra */
+    background-color: #28a745; /* Verde */
+    color: #ffffff; /* Testo bianco */
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px; /* Bordi arrotondati */
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Effetto hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombreggiatura */
+}
+
+.bottone-verde:hover {
+    background-color: #FFD700; /* Verde scuro */
+}
+
+/* Contenitore principale */
+.contenitore {
+    background-color: #ffffff; /* Bianco */
+    padding: 20px;
+    border-radius: 10px; /* Bordi arrotondati */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombreggiatura */
+    width: 820px;
+    margin-top: 80px; /* Sposta il contenitore sotto il bottone */
+    position: relative;
+}
+
+/* Titolo */
+.listaClienti {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    color: #333;
+}
+
+/* Intestazione */
+.intestazione {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    padding: 10px 15px;
+    border-bottom: 2px solid #ddd; /* Linea di separazione */
+    margin-top: 20px;
+}
+
+.campo-nome {
+    flex: 2;
+    text-align: left;
+}
+
+.campo-numero,
+.campo-donazione {
+    flex: 1;
+    text-align: center;
+}
+
+/* Elenco */
+.elenco-clienti {
+    list-style: none; /* Rimuove i punti */
+    padding: 0;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+.elenco-clienti li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd; /* Separatore */
+}
+
+.elenco-clienti li:last-child {
+    border-bottom: none; /* Rimuove il bordo dall'ultimo elemento */
+}
+
+.nome {
+    flex: 2;
+    text-align: left;
+}
+
+.numero,
+.totale {
+    flex: 1;
+    text-align: center;
+}
+
+/* Responsività */
+@media (max-width: 600px) {
+    .contenitore {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .intestazione {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .campo-nome,
+    .campo-numero,
+    .campo-donazione {
+        text-align: left;
+    }
+
+    .elenco-clienti li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .numero,
+    .totale {
+        text-align: left;
+    }
+}
