@@ -134,3 +134,80 @@ button:hover {
         right: 10px; /* Posiziona più vicino al bordo destro su dispositivi piccoli */
     }
 }
+
+/* Media Queries per dispositivi mobili */
+@media (max-width: 600px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .contenitore {
+        margin: 10px; /* Margine ridotto */
+        width: 100%;  /* Massimizza l'uso dello spazio disponibile */
+        padding: 15px;  /* Riduci il padding */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Meno ombra */
+    }
+
+    .listaClienti {
+        font-size: 24px;  /* Font più piccolo per adattarsi */
+    }
+
+    label {
+        font-size: 14px;  /* Testo delle etichette più piccolo */
+    }
+
+    .campo {
+        margin-bottom: 10px; /* Minore spazio tra i campi */
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        font-size: 14px;  /* Font più piccolo */
+        padding: 8px;  /* Riduci il padding */
+    }
+
+    button {
+        font-size: 16px;  /* Bottoni più piccoli */
+        padding: 10px;  /* Riduci il padding */
+    }
+
+    .bottone-verde {
+        top: 10px; /* Avvicina il bottone al bordo superiore */
+        right: 10px; /* Riduce la distanza dal bordo destro */
+        padding: 8px 16px; /* Bottoni più piccoli */
+        font-size: 14px; /* Font più piccolo */
+    }
+}
+
+/* Media Queries per dispositivi molto piccoli */
+@media (max-width: 400px) {
+    .contenitore {
+        margin: 5px; /* Margine minimo */
+        padding: 10px; /* Riduci il padding */
+    }
+
+    .listaClienti {
+        font-size: 20px;  /* Font ancora più piccolo */
+    }
+
+    label {
+        font-size: 12px;  /* Testo ancora più piccolo */
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        font-size: 12px;  /* Font ridotto */
+        padding: 6px;  /* Riduci il padding */
+    }
+
+    button {
+        font-size: 14px;  /* Font del bottone più piccolo */
+        padding: 8px;  /* Riduci il padding */
+    }
+
+    .bottone-verde {
+        padding: 6px 12px; /* Adatta il padding per dispositivi piccoli */
+        font-size: 12px; /* Font più piccolo */
+    }
+}
