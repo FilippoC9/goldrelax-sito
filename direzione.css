@@ -8,13 +8,14 @@ body {
 
 .contenitore {
     background-color: white;
-    margin: 70px auto; /* Aggiungi margine per evitare che il bottone "Indietro" copra */
+    margin: 50px auto;
     width: 100%;
-    max-width: 400px; /* Limita la larghezza massima */
+    max-width: 400px; /* Imposta una larghezza massima */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+    position: relative; /* Necessario per il posizionamento assoluto del pulsante */
 }
 
 .listaClienti {
@@ -36,12 +37,12 @@ label {
 
 input[type="text"],
 input[type="password"] {
-    width: 100%; /* Occupa tutta la larghezza */
+    width: 100%;  /* Occupa tutta la larghezza */
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; /* Assicura che il padding non influenzi la larghezza */
+    box-sizing: border-box;  /* Assicura che il padding non influenzi la larghezza */
 }
 
 input[type="text"]:disabled {
@@ -75,31 +76,42 @@ button:hover {
     font-size: 16px;
     text-decoration: none;
     border-radius: 20px;
-    position: fixed; /* Cambiato da absolute a fixed */
+    position: absolute;  /* Posiziona il bottone rispetto al contenitore */
     top: 20px;
-    left: 20px; /* Allineato a sinistra */
+    right: 20px; /* Sposta il bottone a destra */
     font-weight: bold; /* Rende il testo del pulsante in grassetto */
-    z-index: 100; /* Porta il bottone sopra tutto */
 }
 
 .bottone-verde:hover {
     background-color: #FFD700;
 }
 
+/* Sezione nascosta che apparirà dopo il login corretto */
+.pagina-nascosta {
+    margin-top: 20px;
+    text-align: center;
+    display: none; /* Di default è nascosta */
+}
+
 /* Media Queries per dispositivi mobili */
 @media (max-width: 600px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
     .contenitore {
-        margin: 20px; /* Riduci i margini per dispositivi piccoli */
-        width: 90%; /* Occupa il 90% della larghezza dello schermo */
-        padding: 15px; /* Riduci il padding per dispositivi mobili */
+        margin: 10px; /* Meno margine sui dispositivi piccoli */
+        width: 100%;  /* Occupa tutta la larghezza disponibile */
+        padding: 15px;  /* Riduci il padding per dispositivi mobili */
     }
 
     .listaClienti {
-        font-size: 24px; /* Riduci la dimensione del titolo su schermi piccoli */
+        font-size: 24px;  /* Riduci la dimensione del titolo su schermi piccoli */
     }
 
     label {
-        font-size: 14px; /* Riduci la dimensione dei label */
+        font-size: 14px;  /* Riduci la dimensione dei label */
     }
 
     .campo {
@@ -108,17 +120,17 @@ button:hover {
 
     input[type="text"],
     input[type="password"] {
-        font-size: 14px; /* Riduci la dimensione del font nei campi di input */
-        padding: 8px; /* Riduci il padding dei campi */
+        font-size: 14px;  /* Riduci la dimensione del font nei campi di input */
+        padding: 8px;  /* Riduci il padding dei campi */
     }
 
     button {
-        font-size: 16px; /* Riduci la dimensione del bottone */
-        padding: 10px; /* Riduci il padding del bottone */
+        font-size: 16px;  /* Riduci la dimensione del bottone */
+        padding: 10px;  /* Riduci il padding del bottone */
     }
 
     .bottone-verde {
         top: 10px; /* Posiziona il bottone un po' più in alto su dispositivi piccoli */
-        left: 10px; /* Posiziona più vicino al bordo sinistro su dispositivi piccoli */
+        right: 10px; /* Posiziona più vicino al bordo destro su dispositivi piccoli */
     }
 }
