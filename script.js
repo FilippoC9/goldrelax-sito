@@ -22,7 +22,6 @@ async function caricaDati() {
                 const li = document.createElement('li');
                 li.innerHTML = `
                     <span class="nome">${nome.trim()}</span>
-                    <span class="numero">${numero.trim()}</span>
                     <span class="totale">€${donazione.trim()}</span>
                 `;
                 elencoClienti.appendChild(li); // Aggiungi alla lista
