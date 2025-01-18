@@ -18,7 +18,7 @@ async function caricaDati() {
         // Processa ogni riga e crea un elemento per la lista
         righe.forEach((riga) => {
             if (riga.trim()) { // Ignora righe vuote
-                const [nome, numero, donazione] = riga.split(','); // Separa i dati
+                const [nome, donazione] = riga.split(','); // Separa i dati
                 const li = document.createElement('li');
                 li.innerHTML = `
                     <span class="nome">${nome.trim()}</span>
