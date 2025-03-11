@@ -28,3 +28,37 @@ body {
     text-align: center;
     color: #333;
 }
+
+/* Stile per il frame */
+iframe {
+    width: 840px;
+    height: 519px;
+    max-width: 100%; /* Adatta l'iframe alla larghezza del contenitore */
+    height: auto;
+}
+
+/* Media query per dispositivi mobili */
+@media screen and (max-width: 768px) {
+    .contenitore {
+        width: 95%; /* Occupa quasi tutta la larghezza dello schermo */
+        padding: 15px; /* Riduce il padding per adattarsi meglio */
+    }
+
+    .fatturato {
+        font-size: 28px; /* Riduce la dimensione del titolo */
+    }
+
+    iframe {
+        height: 300px; /* Riduce l'altezza dell'iframe per schermi piccoli */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .fatturato {
+        font-size: 24px; /* Ulteriore riduzione della dimensione del titolo */
+    }
+
+    iframe {
+        height: 250px; /* Ulteriore riduzione dell'iframe */
+    }
+}
