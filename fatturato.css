@@ -32,7 +32,7 @@ body {
 /* Adattamento per dispositivi mobili */
 @media (max-width: 600px) {
     .contenitore {
-        width: 100%;
+        width: 1100px;
         padding: 15px;
     }
 }
