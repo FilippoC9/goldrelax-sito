@@ -32,11 +32,7 @@ body {
 /* Adattamento per dispositivi mobili */
 @media (max-width: 600px) {
     .contenitore {
-        width: 90%;
-        padding: 15px;
-    }
-    iframe {
         width: 100%;
-        height: auto;
+        padding: 15px;
     }
 }
