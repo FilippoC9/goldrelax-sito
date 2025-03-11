@@ -16,6 +16,7 @@ body {
     border-radius: 10px; /* Bordi arrotondati */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombreggiatura */
     width: 1100px;
+    max-width: 90%; /* Adatta la larghezza agli schermi piccoli */
     margin-top: 80px; /* Sposta il contenitore sotto il bottone */
     position: relative;
 }
@@ -37,6 +38,23 @@ iframe {
     height: auto;
 }
 
+/* Contenitore per rendere il grafico responsive */
+.iframe-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-top: 56.25%; /* Proporzione 16:9 */
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 /* Media query per dispositivi mobili */
 @media screen and (max-width: 768px) {
     .contenitore {
@@ -48,8 +66,8 @@ iframe {
         font-size: 28px; /* Riduce la dimensione del titolo */
     }
 
-    iframe {
-        height: 300px; /* Riduce l'altezza dell'iframe per schermi piccoli */
+    .iframe-container {
+        padding-top: 75%; /* Aumenta l'altezza per schermi piccoli */
     }
 }
 
@@ -58,7 +76,7 @@ iframe {
         font-size: 24px; /* Ulteriore riduzione della dimensione del titolo */
     }
 
-    iframe {
-        height: 250px; /* Ulteriore riduzione dell'iframe */
+    .iframe-container {
+        padding-top: 100%; /* Ancora più spazio per il grafico */
     }
 }
