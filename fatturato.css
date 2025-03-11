@@ -36,6 +36,6 @@ body {
         padding: 15px;
     }
     .contenitore > * {
-        margin-left: 500px; /* Sposta il contenuto un po' più a destra */
+        margin-left: 350px; /* Sposta il contenuto un po' più a destra */
     }
 }
