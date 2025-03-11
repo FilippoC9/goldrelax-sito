@@ -28,11 +28,3 @@ body {
     text-align: center;
     color: #333;
 }
-
-/* Responsività */
-@media (max-width: 600px) {
-    .contenitore {
-        width: 30%;
-        padding: 15px;
-    }
-}
