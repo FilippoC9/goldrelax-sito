@@ -16,7 +16,6 @@ body {
     border-radius: 10px; /* Bordi arrotondati */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombreggiatura */
     width: 1100px;
-    max-width: 90%; /* Adatta la larghezza agli schermi piccoli */
     margin-top: 80px; /* Sposta il contenitore sotto il bottone */
     position: relative;
 }
@@ -30,53 +29,14 @@ body {
     color: #333;
 }
 
-/* Stile per il frame */
-iframe {
-    width: 840px;
-    height: 519px;
-    max-width: 100%; /* Adatta l'iframe alla larghezza del contenitore */
-    height: auto;
-}
-
-/* Contenitore per rendere il grafico responsive */
-.iframe-container {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding-top: 56.25%; /* Proporzione 16:9 */
-}
-
-.iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Media query per dispositivi mobili */
-@media screen and (max-width: 768px) {
+/* Adattamento per dispositivi mobili */
+@media (max-width: 600px) {
     .contenitore {
-        width: 95%; /* Occupa quasi tutta la larghezza dello schermo */
-        padding: 15px; /* Riduce il padding per adattarsi meglio */
+        width: 90%;
+        padding: 15px;
     }
-
-    .fatturato {
-        font-size: 28px; /* Riduce la dimensione del titolo */
-    }
-
-    .iframe-container {
-        padding-top: 75%; /* Aumenta l'altezza per schermi piccoli */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .fatturato {
-        font-size: 24px; /* Ulteriore riduzione della dimensione del titolo */
-    }
-
-    .iframe-container {
-        padding-top: 100%; /* Ancora più spazio per il grafico */
+    iframe {
+        width: 100%;
+        height: auto;
     }
 }
