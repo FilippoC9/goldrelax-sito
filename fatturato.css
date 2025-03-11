@@ -32,7 +32,7 @@ body {
 /* Responsività */
 @media (max-width: 600px) {
     .contenitore {
-        width: 90%;
+        width: 30%;
         padding: 15px;
     }
 }
