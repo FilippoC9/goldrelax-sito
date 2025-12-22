@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crittografia Testo</title>
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; }
+textarea { width: 100%; margin-bottom: 10px; }
+button { margin: 5px 5px 15px 0; padding: 10px 15px; }
+#keyOptions { margin-bottom: 15px; }
+</style>
+</head>
+<body>
+<h2>Messaggio da crittografare</h2>
+<textarea id="inputText" rows="6"></textarea>
+<br>
+
+<div id="keyOptions">
+    <button onclick="encryptWithNewKey()">Crea nuova chiave 🔐</button>
+    <button onclick="encryptWithExistingKey()">Usa chiave esistente 🔑</button>
+</div>
+
+<button onclick="decryptMessage()">Decrittografa 🔓</button>
+<button onclick="resetPage()">♻️ Reset</button>
+
+<h2>Testo crittografato</h2>
+<textarea id="outputText" rows="6"></textarea>
+<br>
+<input type="file" id="keyFile" style="display:none">
+
+<script>
+// ---------------- Utils Base64 <-> ArrayBuffer ----------------
+function arrayBufferToBase64(buffer) {
+    let binary = '';
+    const bytes = new Uint8Array(buffer);
+    const chunkSize = 0x8000;
+    for (let i = 0; i < bytes.length; i += chunkSize) {
+        const chunk = bytes.subarray(i, i + chunkSize);
+        binary += String.fromCharCode(...chunk);
+    }
+    return btoa(binary);
+}
+
+function base64ToArrayBuffer(base64) {
+    const binary = atob(base64);
+    const len = binary.length;
+    const bytes = new Uint8Array(len);
+    for (let i = 0; i < len; i++) {
+        bytes[i] = binary.charCodeAt(i);
+    }
+    return bytes.buffer;
+}
+
+// ---------------- Key Functions ----------------
+async function generateKey() {
+    return window.crypto.subtle.generateKey(
+        { name: "AES-GCM", length: 256 },
+        true,
+        ["encrypt", "decrypt"]
+    );
+}
+
+async function exportKey(key) {
+    const raw = await window.crypto.subtle.exportKey("raw", key);
+    const blob = new Blob([raw], {type: "application/octet-stream"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "key.key";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+async function importKey(file) {
+    const arrayBuffer = await file.arrayBuffer();
+    return window.crypto.subtle.importKey(
+        "raw",
+        arrayBuffer,
+        { name: "AES-GCM" },
+        true,
+        ["encrypt", "decrypt"]
+    );
+}
+
+function selectFile() {
+    return new Promise((resolve) => {
+        const input = document.getElementById("keyFile");
+        input.onchange = () => resolve(input.files[0]);
+        input.click();
+    });
+}
+
+// ---------------- Encryption Functions ----------------
+async function performEncryption(key) {
+    const text = document.getElementById("inputText").value;
+    if (!text) { alert("Inserisci un messaggio"); return; }
+
+    const enc = new TextEncoder();
+    const iv = window.crypto.getRandomValues(new Uint8Array(12));
+    const ciphertext = await window.crypto.subtle.encrypt(
+        { name: "AES-GCM", iv: iv },
+        key,
+        enc.encode(text)
+    );
+
+    const combined = new Uint8Array(iv.byteLength + ciphertext.byteLength);
+    combined.set(iv, 0);
+    combined.set(new Uint8Array(ciphertext), iv.byteLength);
+
+    document.getElementById("outputText").value = arrayBufferToBase64(combined);
+}
+
+// ---------------- Encryption Handlers ----------------
+async function encryptWithNewKey() {
+    const key = await generateKey();
+    await exportKey(key);
+    await performEncryption(key);
+}
+
+async function encryptWithExistingKey() {
+    const file = await selectFile();
+    if (!file) return;
+    const key = await importKey(file);
+    await performEncryption(key);
+}
+
+// ---------------- Decryption ----------------
+async function decryptMessage() {
+    const text = document.getElementById("outputText").value;
+    if (!text) { alert("Inserisci il testo crittografato"); return; }
+
+    const file = await selectFile();
+    if (!file) return;
+    const key = await importKey(file);
+
+    try {
+        const combinedBuffer = base64ToArrayBuffer(text);
+        const combined = new Uint8Array(combinedBuffer);
+        const iv = combined.slice(0, 12);
+        const data = combined.slice(12);
+
+        const decrypted = await window.crypto.subtle.decrypt(
+            { name: "AES-GCM", iv: iv },
+            key,
+            data
+        );
+
+        document.getElementById("inputText").value = new TextDecoder().decode(decrypted);
+        alert("Decrittografia completata!");
+    } catch(e) {
+        alert("Errore nella decrittografia: " + e);
+    }
+}
+
+// ---------------- Reset ----------------
+function resetPage() {
+    location.reload();
+}
+</script>
+</body>
+</html>
